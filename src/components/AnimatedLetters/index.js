@@ -12,4 +12,14 @@ const AnimatedLetters = ({ letterClass, strArray, idx }) => {
   );
 };
 
+import { useEffect, useState } from 'react';
+
+useEffect(() => {
+  const timeout = setTimeout(() => {
+    setLetterClass('text-animate-hover');
+  }, 4000);
+
+  return () => clearTimeout(timeout); // ✅ prevents reload/loop
+}, []);
+
 export default AnimatedLetters;
